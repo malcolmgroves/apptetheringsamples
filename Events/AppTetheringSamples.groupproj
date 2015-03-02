@@ -1,0 +1,84 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5CDD0347-8FDA-4455-8CD1-F6237D8B35A4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TetherEvents.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TetherEventsCompanion.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\swarm\Drone.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\DiscoverManagers\DiscoverManagersExample1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\DiscoverManagers\DiscoverManagersExample2.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TetherEvents">
+        <MSBuild Projects="TetherEvents.dproj"/>
+    </Target>
+    <Target Name="TetherEvents:Clean">
+        <MSBuild Projects="TetherEvents.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TetherEvents:Make">
+        <MSBuild Projects="TetherEvents.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TetherEventsCompanion">
+        <MSBuild Projects="TetherEventsCompanion.dproj"/>
+    </Target>
+    <Target Name="TetherEventsCompanion:Clean">
+        <MSBuild Projects="TetherEventsCompanion.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TetherEventsCompanion:Make">
+        <MSBuild Projects="TetherEventsCompanion.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Drone">
+        <MSBuild Projects="..\swarm\Drone.dproj"/>
+    </Target>
+    <Target Name="Drone:Clean">
+        <MSBuild Projects="..\swarm\Drone.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Drone:Make">
+        <MSBuild Projects="..\swarm\Drone.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DiscoverManagersExample1">
+        <MSBuild Projects="..\DiscoverManagers\DiscoverManagersExample1.dproj"/>
+    </Target>
+    <Target Name="DiscoverManagersExample1:Clean">
+        <MSBuild Projects="..\DiscoverManagers\DiscoverManagersExample1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DiscoverManagersExample1:Make">
+        <MSBuild Projects="..\DiscoverManagers\DiscoverManagersExample1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DiscoverManagersExample2">
+        <MSBuild Projects="..\DiscoverManagers\DiscoverManagersExample2.dproj"/>
+    </Target>
+    <Target Name="DiscoverManagersExample2:Clean">
+        <MSBuild Projects="..\DiscoverManagers\DiscoverManagersExample2.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DiscoverManagersExample2:Make">
+        <MSBuild Projects="..\DiscoverManagers\DiscoverManagersExample2.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TetherEvents;TetherEventsCompanion;Drone;DiscoverManagersExample1;DiscoverManagersExample2"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TetherEvents:Clean;TetherEventsCompanion:Clean;Drone:Clean;DiscoverManagersExample1:Clean;DiscoverManagersExample2:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TetherEvents:Make;TetherEventsCompanion:Make;Drone:Make;DiscoverManagersExample1:Make;DiscoverManagersExample2:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,196 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 347
+  ClientWidth = 519
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Client
+    Size.Width = 519.000000000000000000
+    Size.Height = 347.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object GroupBox2: TGroupBox
+      Align = Top
+      Position.Y = 113.000000000000000000
+      Size.Width = 519.000000000000000000
+      Size.Height = 144.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Stream Resources'
+      TabOrder = 0
+      object ImageControl1: TImageControl
+        Position.X = 144.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 97.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+      object Label3: TLabel
+        Position.X = 24.000000000000000000
+        Position.Y = 32.000000000000000000
+        Text = 'Persistent (Mirrored) :'
+      end
+      object ImageControl2: TImageControl
+        Position.X = 400.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 97.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+      end
+      object Label4: TLabel
+        Position.X = 280.000000000000000000
+        Position.Y = 32.000000000000000000
+        Text = 'Transient (Sender) :'
+      end
+      object Button1: TButton
+        Position.X = 280.000000000000000000
+        Position.Y = 56.000000000000000000
+        TabOrder = 3
+        Text = 'Send Image'
+        OnClick = ImageControl2Click
+      end
+    end
+    object GroupBox3: TGroupBox
+      Align = Top
+      Size.Width = 519.000000000000000000
+      Size.Height = 113.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Data Resources'
+      TabOrder = 1
+      object Edit1: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Anchors = [akLeft, akTop, akRight]
+        TabOrder = 0
+        Position.X = 208.000000000000000000
+        Position.Y = 56.000000000000000000
+        Size.Width = 291.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        object EditButton1: TEditButton
+          CanFocus = False
+          Cursor = crArrow
+          TabOrder = 0
+          OnClick = EditButton1Click
+        end
+      end
+      object Label1: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 233.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Persistent (Mirrored) : '
+      end
+      object Label2: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 64.000000000000000000
+        Size.Width = 233.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Transient (Sender) :'
+      end
+      object lblSomeText: TLabel
+        Anchors = [akLeft, akTop, akRight]
+        Position.X = 208.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 311.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'lblSomeText'
+      end
+    end
+    object GroupBox1: TGroupBox
+      Align = Client
+      Size.Width = 519.000000000000000000
+      Size.Height = 90.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Actions'
+      TabOrder = 2
+      object Button2: TButton
+        Action = Action1
+        Enabled = True
+        Position.X = 24.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 153.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Persistent Action'
+        Visible = True
+      end
+      object Button3: TButton
+        Position.X = 200.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 153.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Transient Action'
+        OnClick = Button3Click
+      end
+      object Label6: TLabel
+        Align = Right
+        Position.X = 432.000000000000000000
+        Size.Width = 87.000000000000000000
+        Size.Height = 90.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'listboxheaderlabel'
+        Text = 'App 2'
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 312
+    Top = 224
+  end
+  object TetheringManager1: TTetheringManager
+    Password = 'foobar'
+    Text = 'TetherEventsMgr'
+    AllowedAdapters = 'Network'
+    Left = 168
+    Top = 56
+  end
+  object TetheringAppProfile1: TTetheringAppProfile
+    Manager = TetheringManager1
+    Text = 'TetheringAppProfile1'
+    Group = 'TetherEventsGroup'
+    Actions = <
+      item
+        Name = 'actToggleChecked'
+        IsPublic = True
+        Kind = Mirror
+        Action = Action1
+        NotifyUpdates = True
+      end>
+    Resources = <
+      item
+        Name = 'SomeText'
+        IsPublic = True
+        Kind = Mirror
+        OnResourceReceived = TetheringAppProfile1Resources0ResourceReceived
+      end
+      item
+        Name = 'SomeImage'
+        IsPublic = True
+        Kind = Mirror
+        ResType = Stream
+        OnResourceReceived = TetheringAppProfile1Resources1ResourceReceived
+      end>
+    Left = 272
+    Top = 56
+  end
+  object ActionList1: TActionList
+    Left = 368
+    Top = 224
+    object Action1: TAction
+      Text = 'Action1'
+    end
+  end
+end

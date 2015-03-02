@@ -1,0 +1,229 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 309
+  ClientWidth = 493
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object ToolBar1: TToolBar
+    Size.Width = 493.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object Button1: TButton
+      Action = actConnect
+      Align = Left
+      Enabled = True
+      Size.Width = 80.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Visible = True
+    end
+    object lblStatus: TLabel
+      Anchors = [akLeft, akTop, akRight]
+      Position.X = 96.000000000000000000
+      Position.Y = 11.000000000000000000
+      Size.Width = 386.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Disconnected'
+    end
+  end
+  object Panel1: TPanel
+    Align = Client
+    Size.Width = 493.000000000000000000
+    Size.Height = 269.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    object GroupBox1: TGroupBox
+      Align = Top
+      Size.Width = 493.000000000000000000
+      Size.Height = 89.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'String Resources'
+      TabOrder = 0
+      object Edit1: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Anchors = [akLeft, akTop, akRight]
+        TabOrder = 0
+        Position.X = 136.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 345.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        object EditButton1: TEditButton
+          CanFocus = False
+          Cursor = crArrow
+          Size.Width = 60.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Update'
+          OnClick = EditButton1Click
+        end
+      end
+      object Label1: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 16.000000000000000000
+        Text = 'Persistent (Shared) :'
+      end
+      object Label2: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 56.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Transient (Receiver) :'
+      end
+      object lblSomeReply: TLabel
+        Position.X = 136.000000000000000000
+        Position.Y = 56.000000000000000000
+        Text = 'lblSomeReply'
+      end
+    end
+    object GroupBox2: TGroupBox
+      Align = Top
+      Position.Y = 89.000000000000000000
+      Size.Width = 493.000000000000000000
+      Size.Height = 120.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Stream Resources'
+      TabOrder = 1
+      object ImageControl1: TImageControl
+        Position.X = 136.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 84.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+      end
+      object Label3: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 24.000000000000000000
+        Text = 'Persistent (Shared) :'
+      end
+      object Label4: TLabel
+        Position.X = 256.000000000000000000
+        Position.Y = 24.000000000000000000
+        Text = 'Transient (Receiver) :'
+      end
+      object ImageControl2: TImageControl
+        Position.X = 376.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 84.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnClick = ImageControl1Click
+      end
+      object Button2: TButton
+        Position.X = 16.000000000000000000
+        Position.Y = 48.000000000000000000
+        Size.Width = 97.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Select Image'
+        OnClick = ImageControl1Click
+      end
+    end
+    object GroupBox3: TGroupBox
+      Align = Client
+      Size.Width = 493.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Actions'
+      TabOrder = 2
+      object Switch1: TSwitch
+        IsChecked = False
+        Position.X = 136.000000000000000000
+        Position.Y = 20.000000000000000000
+        TabOrder = 0
+      end
+      object Label5: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 24.000000000000000000
+        Text = 'Persistent (Shared) :'
+      end
+      object Label6: TLabel
+        Align = Right
+        Position.X = 373.000000000000000000
+        Size.Width = 120.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'listboxheaderlabel'
+        Text = 'App 1'
+      end
+      object CheckBox1: TCheckBox
+        Position.X = 232.000000000000000000
+        Position.Y = 24.000000000000000000
+        TabOrder = 1
+        Text = 'Action Enabled'
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 320
+    Top = 176
+  end
+  object TetheringManager1: TTetheringManager
+    OnPairedToRemote = TetheringManager1PairedToRemote
+    OnRequestManagerPassword = TetheringManager1RequestManagerPassword
+    OnUnPairManager = TetheringManager1UnPairManager
+    Password = 'foobar'
+    Text = 'TetherEventsMgr'
+    AllowedAdapters = 'Network'
+    Left = 144
+    Top = 8
+  end
+  object ActionList1: TActionList
+    Left = 256
+    Top = 176
+    object actConnect: TAction
+      Text = 'Connect'
+      OnExecute = actConnectExecute
+      OnUpdate = actConnectUpdate
+    end
+    object actLogLine: TAction
+      Text = 'Add Line'
+    end
+    object actClearLog: TAction
+      Text = 'Clear Log'
+    end
+    object actToggleChecked: TAction
+      Text = 'actToggleChecked'
+      OnExecute = actToggleCheckedExecute
+      OnUpdate = actToggleCheckedUpdate
+    end
+  end
+  object TetheringAppProfile1: TTetheringAppProfile
+    Manager = TetheringManager1
+    Text = 'TetheringAppProfile1'
+    Group = 'TetherEventsGroup'
+    Actions = <
+      item
+        Name = 'actToggleChecked'
+        IsPublic = True
+        Action = actToggleChecked
+        NotifyUpdates = True
+      end>
+    Resources = <
+      item
+        Name = 'SomeText'
+        IsPublic = True
+      end
+      item
+        Name = 'SomeImage'
+        IsPublic = True
+        ResType = Stream
+      end>
+    OnResourceReceived = TetheringAppProfile1ResourceReceived
+    Left = 240
+    Top = 8
+  end
+end

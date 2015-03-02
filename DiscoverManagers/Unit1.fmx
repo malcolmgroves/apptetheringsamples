@@ -1,0 +1,55 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object ToolBar1: TToolBar
+    Size.Width = 640.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+  object ListBox1: TListBox
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 440.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+  end
+  object TetheringManager1: TTetheringManager
+    OnPairedFromLocal = TetheringManager1PairedFromLocal
+    OnPairedToRemote = TetheringManager1PairedToRemote
+    Password = 'foobar'
+    Text = 'TetheringManager1'
+    AllowedAdapters = 'Network'
+    Left = 248
+    Top = 200
+  end
+  object TetheringAppProfile1: TTetheringAppProfile
+    Manager = TetheringManager1
+    Text = 'TetheringAppProfile1'
+    Group = 'wallabies'
+    Actions = <>
+    Resources = <>
+    Left = 192
+    Top = 304
+  end
+  object TetheringAppProfile2: TTetheringAppProfile
+    Manager = TetheringManager1
+    Text = 'TetheringAppProfile2'
+    Group = 'auckland'
+    Actions = <>
+    Resources = <>
+    Left = 360
+    Top = 304
+  end
+end

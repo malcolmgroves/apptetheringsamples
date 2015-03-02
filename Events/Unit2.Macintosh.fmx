@@ -1,0 +1,76 @@
+inherited Form2_Macintosh: TForm2_Macintosh
+  ClientWidth = 530
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    Size.Width = 530.000000000000000000
+    inherited GroupBox2: TGroupBox
+      Margins.Left = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Position.X = 8.000000000000000000
+      Position.Y = 121.000000000000000000
+      Size.Width = 514.000000000000000000
+      inherited ImageControl1: TImageControl
+        Position.Y = 32.000000000000000000
+      end
+      inherited Label3: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 128.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+      end
+      inherited ImageControl2: TImageControl
+        Position.Y = 32.000000000000000000
+      end
+      inherited Button1: TButton
+        Size.Width = 105.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    inherited GroupBox3: TGroupBox
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 514.000000000000000000
+      inherited Edit1: TEdit
+        Size.Width = 289.000000000000000000
+      end
+      inherited lblSomeText: TLabel
+        Size.Width = 289.000000000000000000
+      end
+    end
+    inherited GroupBox1: TGroupBox
+      Margins.Left = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Size.Width = 514.000000000000000000
+      Size.Height = 66.000000000000000000
+      inherited Label6: TLabel
+        Position.X = 427.000000000000000000
+        Size.Height = 66.000000000000000000
+      end
+    end
+  end
+  inherited TetheringAppProfile1: TTetheringAppProfile
+    Actions = <
+      item
+        Name = 'Action1'
+        IsPublic = True
+        Action = Action1
+        NotifyUpdates = False
+      end>
+    Resources = <
+      item
+        Name = 'SomeText'
+        IsPublic = True
+      end
+      item
+        Name = 'SomeImage'
+        IsPublic = True
+        ResType = Stream
+      end>
+  end
+end

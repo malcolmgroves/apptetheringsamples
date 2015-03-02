@@ -1,0 +1,49 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 473
+  ClientWidth = 404
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object ListBox1: TListBox
+    Align = Client
+    Size.Width = 404.000000000000000000
+    Size.Height = 473.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+  end
+  object TetheringManager1: TTetheringManager
+    OnPairedFromLocal = TetheringManager1PairedFromLocal
+    OnPairedToRemote = TetheringManager1PairedToRemote
+    OnRequestManagerPassword = TetheringManager1RequestManagerPassword
+    OnNewManager = TetheringManager1NewManager
+    OnUnPairManager = TetheringManager1UnPairManager
+    OnRemoteManagerShutdown = TetheringManager1RemoteManagerShutdown
+    Password = 'bzzzbzzz'
+    Text = 'TetheringManager1'
+    AllowedAdapters = 'Network'
+    Left = 312
+    Top = 176
+  end
+  object TetheringAppProfile1: TTetheringAppProfile
+    Manager = TetheringManager1
+    Text = 'TetheringAppProfile1'
+    Group = 'swarm'
+    Actions = <>
+    Resources = <
+      item
+        Name = 'dummy'
+        IsPublic = True
+      end>
+    Left = 312
+    Top = 232
+  end
+end
