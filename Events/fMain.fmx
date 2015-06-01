@@ -18,6 +18,7 @@ object Form1: TForm1
       Action = actConnect
       Align = Left
       Enabled = True
+      ImageIndex = -1
       Size.Width = 80.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
@@ -159,12 +160,6 @@ object Form1: TForm1
         StyleLookup = 'listboxheaderlabel'
         Text = 'App 1'
       end
-      object CheckBox1: TCheckBox
-        Position.X = 232.000000000000000000
-        Position.Y = 24.000000000000000000
-        TabOrder = 1
-        Text = 'Action Enabled'
-      end
     end
   end
   object OpenDialog1: TOpenDialog
@@ -198,7 +193,6 @@ object Form1: TForm1
     object actToggleChecked: TAction
       Text = 'actToggleChecked'
       OnExecute = actToggleCheckedExecute
-      OnUpdate = actToggleCheckedUpdate
     end
   end
   object TetheringAppProfile1: TTetheringAppProfile

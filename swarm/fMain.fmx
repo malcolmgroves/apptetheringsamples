@@ -19,6 +19,8 @@ object Form1: TForm1
     DefaultItemStyles.ItemStyle = ''
     DefaultItemStyles.GroupHeaderStyle = ''
     DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 400.000000000000000000
+    Viewport.Height = 469.000000000000000000
   end
   object TetheringManager1: TTetheringManager
     OnPairedFromLocal = TetheringManager1PairedFromLocal

@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, IPPeerClient,
   IPPeerServer, System.Tether.Manager, System.Tether.AppProfile, FMX.Layouts,
   FMX.Memo, FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation, System.Actions,
-  FMX.ActnList;
+  FMX.ActnList, FMX.ListBox;
 
 type
   TForm2 = class(TForm)
@@ -93,21 +93,14 @@ end;
 procedure TForm2.TetheringAppProfile1Resources0ResourceReceived(
   const Sender: TObject; const AResource: TRemoteResource);
 begin
-  TThread.Synchronize(nil, procedure
-                           begin
-                              lblSomeText.Text := AResource.Value.AsString;
-                           end);
+  lblSomeText.Text := AResource.Value.AsString;
 end;
 
 procedure TForm2.TetheringAppProfile1Resources1ResourceReceived(
   const Sender: TObject; const AResource: TRemoteResource);
 begin
-  TThread.Synchronize(nil,procedure
-                          begin
-                              Aresource.Value.AsStream.Position := 0;
-                              ImageControl1.Bitmap.LoadFromStream(Aresource.Value.AsStream);
-                          end );
-
+  Aresource.Value.AsStream.Position := 0;
+  ImageControl1.Bitmap.LoadFromStream(Aresource.Value.AsStream);
 end;
 
 end.

@@ -47,10 +47,10 @@ inherited Form2_Macintosh: TForm2_Macintosh
       Margins.Right = 8.000000000000000000
       Margins.Bottom = 8.000000000000000000
       Size.Width = 514.000000000000000000
-      Size.Height = 66.000000000000000000
+      Size.Height = 50.000000000000000000
       inherited Label6: TLabel
         Position.X = 427.000000000000000000
-        Size.Height = 66.000000000000000000
+        Size.Height = 50.000000000000000000
       end
     end
   end

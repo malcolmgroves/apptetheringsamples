@@ -2,7 +2,7 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Form2'
-  ClientHeight = 347
+  ClientHeight = 331
   ClientWidth = 519
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -12,7 +12,7 @@ object Form2: TForm2
   object Panel1: TPanel
     Align = Client
     Size.Width = 519.000000000000000000
-    Size.Height = 347.000000000000000000
+    Size.Height = 331.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 4
     object GroupBox2: TGroupBox
@@ -109,13 +109,14 @@ object Form2: TForm2
     object GroupBox1: TGroupBox
       Align = Client
       Size.Width = 519.000000000000000000
-      Size.Height = 90.000000000000000000
+      Size.Height = 74.000000000000000000
       Size.PlatformDefault = False
       Text = 'Actions'
       TabOrder = 2
       object Button2: TButton
         Action = Action1
         Enabled = True
+        ImageIndex = -1
         Position.X = 24.000000000000000000
         Position.Y = 32.000000000000000000
         Size.Width = 153.000000000000000000
@@ -139,7 +140,7 @@ object Form2: TForm2
         Align = Right
         Position.X = 432.000000000000000000
         Size.Width = 87.000000000000000000
-        Size.Height = 90.000000000000000000
+        Size.Height = 74.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'listboxheaderlabel'
         Text = 'App 2'
@@ -167,7 +168,7 @@ object Form2: TForm2
         IsPublic = True
         Kind = Mirror
         Action = Action1
-        NotifyUpdates = True
+        NotifyUpdates = False
       end>
     Resources = <
       item

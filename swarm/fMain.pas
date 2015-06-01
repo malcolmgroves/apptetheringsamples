@@ -46,17 +46,14 @@ begin
 end;
 
 procedure TForm1.LoadSwarmList;
+var
+ LPairedManager: TTetheringManagerInfo;
 begin
-  TThread.Synchronize(nil, procedure
-                           var
-                             LPairedManager: TTetheringManagerInfo;
-                           begin
-                            ListBox1.Clear;
-                            for LPairedManager in TetheringManager1.PairedManagers do
-                            begin
-                              ListBox1.Items.Add(Format('%s %s', [LPairedManager.ManagerIdentifier, LPairedManager.ConnectionString]));
-                            end;
-                           end);
+  ListBox1.Clear;
+  for LPairedManager in TetheringManager1.PairedManagers do
+  begin
+    ListBox1.Items.Add(Format('%s %s', [LPairedManager.ManagerIdentifier, LPairedManager.ConnectionString]));
+  end;
 end;
 
 procedure TForm1.TetheringManager1NewManager(const Sender: TObject;

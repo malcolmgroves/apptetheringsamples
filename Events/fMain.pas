@@ -39,7 +39,6 @@ type
     Label5: TLabel;
     lblStatus: TLabel;
     Label6: TLabel;
-    CheckBox1: TCheckBox;
     procedure actConnectUpdate(Sender: TObject);
     procedure actConnectExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -54,7 +53,6 @@ type
     procedure actToggleCheckedExecute(Sender: TObject);
     procedure TetheringManager1UnPairManager(const Sender: TObject;
       const AManagerInfo: TTetheringManagerInfo);
-    procedure actToggleCheckedUpdate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -100,11 +98,6 @@ begin
   Switch1.IsChecked := not Switch1.IsChecked;
 end;
 
-procedure TForm1.actToggleCheckedUpdate(Sender: TObject);
-begin
-  actToggleChecked.Enabled := CheckBox1.IsChecked;
-end;
-
 procedure TForm1.EditButton1Click(Sender: TObject);
 begin
   TetheringAppProfile1.Resources.FindByName('SomeText').Value := Edit1.Text;
@@ -136,18 +129,12 @@ procedure TForm1.TetheringAppProfile1ResourceReceived(const Sender: TObject;
 begin
   if AResource.Hint = 'ReplyText' then
   begin
-    TThread.Synchronize(nil, procedure
-                             begin
-                              lblSomeReply.Text := AResource.Value.AsString;
-                             end);
+    lblSomeReply.Text := AResource.Value.AsString;
   end
   else if AResource.Hint = 'ReplyImage' then
   begin
-    TThread.Synchronize(nil, procedure
-                             begin
-                              Aresource.Value.AsStream.Position := 0;
-                              ImageControl2.Bitmap.LoadFromStream(Aresource.Value.AsStream);
-                             end);
+    Aresource.Value.AsStream.Position := 0;
+    ImageControl2.Bitmap.LoadFromStream(Aresource.Value.AsStream);
   end;
 end;
 
